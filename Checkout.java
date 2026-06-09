@@ -23,11 +23,27 @@ public static void main(String[] args) {
       productName[index] = input.next();
 
       System.out.print("\nHow many pieces?: ");
+      quantities[index] = input.nextInt(); 
+
+      while (quantities[index] < 1) {
+      System.out.println("Invalid quantity. Quantity must be at least 1.");
+      System.out.print("\nHow many pieces?: ");
       quantities[index] = input.nextInt();
+         }
+
+
       
 
       System.out.print("\nHow much per unit?: ");
       price[index] = input.nextDouble();
+
+      while (price[index] < 1) {
+      System.out.println("Invalid price. Price must be greater than 0.");
+      System.out.print("\nHow much per unit?: ");
+      price[index] = input.nextDouble();
+         }
+
+  
             
         index++;
 
@@ -92,7 +108,15 @@ public static void main(String[] args) {
 
 
         System.out.print("\n\nHow much did the customer give to you? ");
-        double amountPaid = input.nextDouble();  
+        double amountPaid = input.nextDouble();
+
+       while (amountPaid < billTotal) {
+       System.out.printf("Amount entered is less than the bill total of %.2f%n", billTotal);
+       System.out.print("Please enter the amount again: ");
+       amountPaid = input.nextDouble();
+          }
+
+ 
 
 
 
